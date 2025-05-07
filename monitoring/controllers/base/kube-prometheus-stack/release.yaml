@@ -31,3 +31,12 @@ spec:
   values:
     grafana:
       adminPassword: philip
+      ingress:
+        enabled: true
+        ingressClassName: traefik
+        annotations: {}
+        labels: {}
+        hosts:
+          - grafana.philipkrueck.com
+
+        path: /
