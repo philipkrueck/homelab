@@ -40,3 +40,7 @@ spec:
           - grafana.philipkrueck.com
 
         path: /
+      tls:
+        - secretName: grafana-tls-secret
+          hosts:
+            - grafana.philipkrueck.com
