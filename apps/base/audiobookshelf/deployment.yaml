@@ -26,15 +26,15 @@ spec:
             - configMapRef:
                 name: audiobookshelf-configmap
 
-          # volumeMounts:
-          #   - name: linkding-data
-          #     mountPath: /etc/linkding/data
+          volumeMounts:
+            - name: audiobooks-volume
+              mountPath: /audiobooks
           # securityContext:
           #   allowPrivilegeEscalation: false
           # envFrom:
           #   - secretRef:
           #       name: linkding-container-env
-      # volumes:
-      #   - name: linkding-data
-      #     persistentVolumeClaim:
-      #       claimName: linkding-data-pvc
+      volumes:
+        - name: audiobooks-volume
+          persistentVolumeClaim:
+            claimName: audiobooks-pvc
