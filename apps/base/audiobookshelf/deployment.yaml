@@ -29,6 +29,8 @@ spec:
           volumeMounts:
             - name: audiobooks-volume
               mountPath: /audiobooks
+            - name: podcasts-volume
+              mountPath: /podcasts
           # securityContext:
           #   allowPrivilegeEscalation: false
           # envFrom:
@@ -38,3 +40,6 @@ spec:
         - name: audiobooks-volume
           persistentVolumeClaim:
             claimName: audiobooks-pvc
+        - name: podcasts-volume
+          persistentVolumeClaim:
+            claimName: podcasts-pvc
