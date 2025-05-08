@@ -33,6 +33,8 @@ spec:
               mountPath: /podcasts
             - name: config-volume
               mountPath: /config
+            - name: metadata-volume
+              mountPath: /metadata
           # securityContext:
           #   allowPrivilegeEscalation: false
           # envFrom:
@@ -48,3 +50,6 @@ spec:
         - name: config-volume
           persistentVolumeClaim:
             claimName: config-pvc
+        - name: metadata-volume
+          persistentVolumeClaim:
+            claimName: metadata-pvc
