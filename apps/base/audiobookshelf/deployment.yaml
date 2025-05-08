@@ -13,10 +13,10 @@ spec:
       labels:
         app: audiobookshelf
     spec:
-      # securityContext:
-      #   runAsUser: 33 # www-data user ID
-      #   runAsGroup: 33 # www-data group ID
-      #   fsGroup: 33 # www-data group ID
+      securityContext:
+        runAsUser: 1000 # node user ID
+        runAsGroup: 1000 # node group ID
+        fsGroup: 1000 # node group ID
       containers:
         - name: audiobookshelf
           image: ghcr.io/advplyr/audiobookshelf:2.21.0
@@ -35,8 +35,8 @@ spec:
               mountPath: /config
             - name: metadata-volume
               mountPath: /metadata
-          # securityContext:
-          #   allowPrivilegeEscalation: false
+          securityContext:
+            allowPrivilegeEscalation: false
           # envFrom:
           #   - secretRef:
           #       name: linkding-container-env
