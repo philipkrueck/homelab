@@ -5,7 +5,7 @@
 set -e
 
 source /etc/lsb-release
-if [ "$DISTRIB_RELEASE" != "24.04" ]; then
+if [ "$DISTRIB_RELEASE" != "20.04" ]; then
   echo "################################# "
   echo "############ WARNING ############ "
   echo "################################# "
