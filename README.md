@@ -107,7 +107,21 @@ Services are exposed on ports `30000`-`40000` so these will be opened as needed.
 
 ### Cluster Setup Instructions
 
-Coming.
+**1. Setup Master Node**
+
+1. SSH into Master Node.
+2. Login as root: `sudo -i`.
+3. Execute the setup script:
+
+```sh
+bash <(curl -s https://raw.githubusercontent.com/philipkrueck/homelab/refs/heads/main/setup/install-master.sh)
+```
+
+4. Take note of the join command in the output. It should look something like this:
+
+```sh
+kubeadm join <masterIP>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>
+```
 
 ## Future Plans
 
