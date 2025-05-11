@@ -107,7 +107,7 @@ Services are exposed on ports `30000`-`40000` so these ports will be opened as n
 
 ### Cluster Setup Instructions
 
-**1. Setup Master Node**
+#### 1. Setup Master Node
 
 1. SSH into Master Node.
 2. Login as root: `sudo -i`.
@@ -123,7 +123,7 @@ bash <(curl -s https://raw.githubusercontent.com/philipkrueck/homelab/refs/heads
 kubeadm join <masterIP>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>
 ```
 
-**2. Setup Worker Node**
+#### 2. Setup Worker Node
 
 1. SSH into Worker Node.
 2. Login as root: `sudo -i`.
@@ -135,7 +135,7 @@ bash <(curl -s https://raw.githubusercontent.com/philipkrueck/homelab/refs/heads
 
 4. Execute the join command that was displayed at the end of the output of the setup script on the master.
 
-**3. Verify Node Setup**
+#### 3. Verify Node Setup
 
 1. Go back to the master node.
 2. Login again: `sudo -i`.
