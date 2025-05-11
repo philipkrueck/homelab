@@ -103,7 +103,7 @@ Both the master and worker node have the same specs:
 
 Both machines require open SSH access (`TCP:22`).
 The master node also requires an open `TCP:6443` firewall rule for the Kube API Server.
-Services are exposed on ports `30000`-`40000` so these will be opened as needed.
+Services are exposed on ports `30000`-`40000` so these ports will be opened as needed.
 
 ### Cluster Setup Instructions
 
@@ -117,10 +117,35 @@ Services are exposed on ports `30000`-`40000` so these will be opened as needed.
 bash <(curl -s https://raw.githubusercontent.com/philipkrueck/homelab/refs/heads/main/setup/install-master.sh)
 ```
 
-4. Take note of the join command in the output. It should look something like this:
+4. Take note of the join command in the output. It will be needed in the next steps and should look similar to this:
 
 ```sh
 kubeadm join <masterIP>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>
+```
+
+**2. Setup Worker Node**
+
+1. SSH into Worker Node.
+2. Login as root: `sudo -i`.
+3. Execute the setup script:
+
+```sh
+bash <(curl -s https://raw.githubusercontent.com/philipkrueck/homelab/refs/heads/main/setup/install-worker.sh)
+```
+
+4. Execute the join command that was displayed at the end of the output of the setup script on the master.
+
+**3. Verify Node Setup**
+
+1. Go back to the master node.
+2. Login again: `sudo -i`.
+3. Check the nodes using the `k=kubectl` alias:
+
+```sh
+❯ k get nodes
+NAME                STATUS   ROLES                  AGE     VERSION
+homelab-master      Ready    control-plane,master   6d21h   v1.32.3
+homelab-worker      Ready    worker                 6d21h   v1.32.3
 ```
 
 ## Future Plans
