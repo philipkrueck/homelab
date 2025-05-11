@@ -14,11 +14,7 @@ I aim to apply all changes via GitOps rather than running manual commands on the
 
 To this end I'm using [FluxCD](https://fluxcd.io/).
 
-## Kubernetes Deployment
-
-I'm currently running the cluster as a [k3s](https://k3s.io/) single node cluster on a Virtual Machine in the cloud.
-
-I plan to go multi-node, multi-cloud in the future, and potentially even setting up hardware at home.
+## Deployment
 
 ### Apps
 
@@ -41,6 +37,7 @@ End User Applications
         <td>My audio book library.</td>
     </tr>
 </table>
+...more coming soon
 
 ### Infrastructure
 
@@ -60,12 +57,12 @@ Everything needed to run my cluster & deploy my applications
     <tr>
         <td><img width="32" src="https://raw.githubusercontent.com/docker-library/docs/a6cc2c5f4bc6658168f2a0abbb0307acaefff80e/traefik/logo.png"></td>
         <td><a href="https://traefik.io/traefik/">Traefik</a></td>
-        <td>Ingress Controller of choice</td>
+        <td>My Ingress Controller of choice.</td>
     </tr>
     <tr>
         <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/cloudflare-zero-trust.png"></td>
         <td><a href="https://developers.cloudflare.com/cloudflare-one/">Cloudflare Tunnels</a></td>
-        <td>I don't really need tunnels since my VM has a public IP. Should I switch to my own hardware, it might be nice to use tunnels though.</td>
+        <td>I don't really need tunnels since my VM has a public IP. But they are amazing if I setup some hardware in my private network.</td>
     </tr>
     <tr>
         <td><img width="32" src="https://www.svgrepo.com/download/477066/lock.svg"></td>
@@ -88,6 +85,29 @@ Everything needed to run my cluster & deploy my applications
         <td>Automated dependency updates.</td>
     </tr>
 </table>
+
+## Setup
+
+I'm currently running the cluster on 2 unmanaged virtual machines - one master and one worker node provisioned using [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/).
+
+### Virtual Machine Specs
+
+Both the master and worker node have the same specs:
+
+- RAM = 4GiB
+- disk = 120GiB SSD
+- CPU = 2 vCPU
+- OS = Ubuntu 20.04
+
+### Network Access
+
+Both machines require open SSH access (`TCP:22`).
+The master node also requires an open `TCP:6443` firewall rule for the Kube API Server.
+Services are exposed on ports `30000`-`40000` so these will be opened as needed.
+
+### Cluster Setup Instructions
+
+Coming.
 
 ## Future Plans
 
