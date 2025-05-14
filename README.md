@@ -163,7 +163,7 @@ export-env { $env.GITHUB_TOKEN = 'ghp_XXXX' }
 2. Bootstrap flux on cluster
 
 ```sh
-flux bootstrap github --owner=philipkrueck --repository=homelab --branch=main --path=./clusters/staging --personal
+flux bootstrap github --owner=philipkrueck --repository=homelab --branch=main --path=./clusters/staging --personal --token-auth
 ```
 
 3. Setup secret encryption using age
