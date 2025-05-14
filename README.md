@@ -88,9 +88,15 @@ Everything needed to run my cluster & deploy my applications
 
 ## Setup
 
-I'm currently running the cluster on 2 unmanaged virtual machines - one master and one worker node provisioned using [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/).
+I want my homelab to run on various types of Kubernetes setups.
 
-### Virtual Machine Specs
+I'm currently running my cluster on a simple single VM [k3s](), but planning to switch to the multi-node setup soon. I've documented both setup options below.
+
+### Multi-node kubeadm setup
+
+This setup requires 2 virtual machines - one master and one worker node provisioned using [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/).
+
+#### Virtual Machine Specs
 
 Both the master and worker node have the same specs:
 
@@ -99,15 +105,19 @@ Both the master and worker node have the same specs:
 - CPU = 2 vCPU
 - OS = Ubuntu 20.04
 
-### Network Access
+#### Network Access
 
 Both machines require open SSH access (`TCP:22`).
 The master node also requires an open `TCP:6443` firewall rule for the Kube API Server.
 Services are exposed on ports `30000`-`40000` so these ports will be opened as needed.
 
-### Cluster Setup Instructions
+#### Cluster Setup Instructions (Single node with `k3s`)
 
-#### 1. Setup Master Node
+TODO: add setup instructions for k3s
+
+#### Cluster Setup Instructions (Multi-node with `kubeadm`)
+
+##### 1. Setup Master Node
 
 1. SSH into Master Node.
 2. Login as root: `sudo -i`.
@@ -123,7 +133,7 @@ bash <(curl -s https://raw.githubusercontent.com/philipkrueck/homelab/refs/heads
 kubeadm join <masterIP>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>
 ```
 
-#### 2. Setup Worker Node
+##### 2. Setup Worker Node
 
 1. SSH into Worker Node.
 2. Login as root: `sudo -i`.
@@ -135,7 +145,7 @@ bash <(curl -s https://raw.githubusercontent.com/philipkrueck/homelab/refs/heads
 
 4. Execute the join command that was displayed at the end of the output of the setup script on the master.
 
-#### 3. Verify Node Setup
+##### 3. Verify Node Setup
 
 1. Go back to the master node.
 2. Login again: `sudo -i`.
@@ -148,7 +158,9 @@ homelab-master      Ready    control-plane,master   6d21h   v1.32.3
 homelab-worker      Ready    worker                 6d21h   v1.32.3
 ```
 
-#### 4. Install Flux
+- Now the kube config can copied to the local machine to interact with the cluster without SSH access.
+
+## Install Flux
 
 1. Obtain a new Personal Access Token
 
