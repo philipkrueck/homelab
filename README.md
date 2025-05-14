@@ -148,6 +148,30 @@ homelab-master      Ready    control-plane,master   6d21h   v1.32.3
 homelab-worker      Ready    worker                 6d21h   v1.32.3
 ```
 
+#### 4. Install Flux
+
+1. Obtain a new Personal Access Token
+
+- Go to GitHub Settings > Developer Settings > Personal Access Tokens
+- Generate a new classic token with 'repo' permissions
+- Store the token in an environment variable: `export GITHUB_TOKEN=<your-token>` or in nushell
+
+```sh
+export-env { $env.GITHUB_TOKEN = 'ghp_XXXX' }
+```
+
+2. Bootstrap flux on cluster
+
+```sh
+flux bootstrap github --owner=philipkrueck --repository=homelab --branch=main --path=./clusters/staging --personal
+```
+
+3. Setup secret encryption using age
+
+```sh
+age-keygen -o age.key # maybe not necessary if already exists
+```
+
 ## Future Plans
 
 - Deploy some more cool open source applications like [Homepage](https://github.com/gethomepage/homepage)
