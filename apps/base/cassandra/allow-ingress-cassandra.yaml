@@ -1,16 +1,16 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: allow-egress-cassandra
+  name: allow-ingress-cassandra
   namespace: default
 spec:
   podSelector:
     matchLabels:
-      run: backend
+      run: cassandra
   policyTypes:
-    - Egress
-  egress:
-    - to:
+    - Ingress
+  ingress:
+    - from:
         - namespaceSelector:
             matchLabels:
-              ns: cassandra
+              ns: default

@@ -9,3 +9,4 @@ resources:
   - allow-egress-frontend.yaml
   - allow-ingress-backend.yaml
   - allow-egress-cassandra-ns.yaml
+  - namespace.yaml

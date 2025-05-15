@@ -4,3 +4,4 @@ resources:
   - pod.yaml
   - namespace.yaml
   - default-deny.yaml
+  - allow-ingress-cassandra.yaml
