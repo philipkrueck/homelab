@@ -5,3 +5,4 @@ resources:
   - backend-pod.yaml
   - backend-svc.yaml
   - frontend-svc.yaml
+  - default-deny.yaml
