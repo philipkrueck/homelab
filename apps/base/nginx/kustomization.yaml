@@ -4,3 +4,4 @@ resources:
   - frontend-pod.yaml
   - backend-pod.yaml
   - backend-svc.yaml
+  - frontend-svc.yaml
