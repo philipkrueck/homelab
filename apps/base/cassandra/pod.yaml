@@ -6,5 +6,17 @@ metadata:
   name: cassandra
 spec:
   containers:
-    - image: cassandra
+    - image: gcr.io/google-samples/cassandra:v13
       name: cassandra
+      resources:
+        limits:
+          cpu: "500m"
+          memory: 1Gi
+        requests:
+          cpu: "500m"
+          memory: 1Gi
+      env:
+        - name: MAX_HEAP_SIZE
+          value: 512M
+        - name: HEAP_NEWSIZE
+          value: 100M
