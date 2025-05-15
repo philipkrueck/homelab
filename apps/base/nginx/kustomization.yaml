@@ -6,3 +6,5 @@ resources:
   - backend-svc.yaml
   - frontend-svc.yaml
   - default-deny.yaml
+  - allow-egress-frontend.yaml
+  - allow-ingress-backend.yaml
