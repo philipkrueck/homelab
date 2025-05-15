@@ -14,3 +14,9 @@ spec:
         - namespaceSelector:
             matchLabels:
               ns: default
+        - podSelector:
+            matchLabels:
+              role: backend
+      ports:
+        - protocol: TCP
+          port: 80
