@@ -19,5 +19,8 @@ spec:
     crds: CreateReplace
   driftDetection:
     mode: enabled
-  # values:
-  # TODO: add values in future
+  values:
+    ingress:
+      enabled: true
+      hosts:
+        - dashboard.philipkrueck.com
