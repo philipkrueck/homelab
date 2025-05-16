@@ -18,7 +18,7 @@ spec:
         fsGroup: 1000 # www-data group ID
       containers:
         - name: audiobookshelf
-          image: ghcr.io/advplyr/audiobookshelf:2.21.0
+          image: ghcr.io/advplyr/audiobookshelf:2.23.0
           ports:
             - containerPort: 3005
           envFrom:
