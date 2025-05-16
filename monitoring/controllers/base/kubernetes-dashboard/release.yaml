@@ -24,3 +24,13 @@ spec:
       enabled: true
       hosts:
         - dashboard.philipkrueck.com
+      ingressClassName: trafik
+      useDefaultIngressClass: false
+      useDefaultIngressAnnotations: false
+      pathType: Prefix
+      tls:
+        secretName: "dashboard-tls"
+      annotations:
+        traefik.ingress.kubernetes.io/router.tls: "true"
+        traefik.ingress.kubernetes.io/service.serversscheme: "https"
+        traefik.ingress.kubernetes.io/service.serverstransport: "insecure@file"
