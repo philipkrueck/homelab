@@ -4,9 +4,8 @@ metadata:
   name: dashboard-ingress
   namespace: kubernetes-dashboard
   annotations:
-    cert-manager.io/cluster-issuer: spnw-intermediate-ca1-issuer
-    cert-manager.io/common-name: "dashboard.k3s.homelab.mydomain.org"
     kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/passthrough: "true"
 spec:
   ingressClassName: traefik
   rules:
