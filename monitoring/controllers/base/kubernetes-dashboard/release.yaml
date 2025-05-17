@@ -19,3 +19,21 @@ spec:
     crds: CreateReplace
   driftDetection:
     mode: enabled
+  values:
+    kong:
+      certificates:
+        enabled: true
+        clusterIssuer: spnw-intermediate-ca1-issuer
+        proxy:
+          enabled: true
+          commonName: kubernetes-dashboard-kong-proxy
+          dnsNames:
+            - kubernetes-dashboard-kong-proxy
+            - kubernetes-dashboard-kong-proxy.svc.cluster.local
+            - kubernetes-dashboard-kong-proxy.kubernetes-dashboard
+          type: ClusterIP
+          http:
+            enabled: false
+          annotations:
+            traefik.ingress.kubernetes.io/service.serversscheme: https
+            traefik.ingress.kubernetes.io/service.serverstransport: kubernetes-dashboard-custom-tls-verify@kubernetescrd
