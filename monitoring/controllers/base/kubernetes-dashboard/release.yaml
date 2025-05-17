@@ -19,18 +19,3 @@ spec:
     crds: CreateReplace
   driftDetection:
     mode: enabled
-  values:
-    ingress:
-      enabled: true
-      hosts:
-        - dashboard.philipkrueck.com
-      ingressClassName: traefik
-      useDefaultIngressClass: false
-      useDefaultIngressAnnotations: false
-      pathType: Prefix
-      tls:
-        secretName: "kubernetes-dashboard-tls-secret"
-      annotations:
-        traefik.ingress.kubernetes.io/router.tls: "true"
-        traefik.ingress.kubernetes.io/service.serversscheme: "https"
-        traefik.ingress.kubernetes.io/service.serverstransport: "insecure@file"
