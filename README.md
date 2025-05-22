@@ -90,7 +90,19 @@ Everything needed to run my cluster & deploy my applications
 
 I want my homelab to run on various types of Kubernetes setups.
 
-I'm currently running my cluster on a simple single VM [k3s](), but planning to switch to the multi-node setup soon. I've documented both setup options below.
+I'm currently running my cluster on a simple single VM [k3s](https://docs.k3s.io), but planning to switch to the multi-node setup soon. I've documented both setup options below.
+
+### k3s install
+
+Follow the docs for installation.
+
+Then make sure the `traefik-config.yaml` doesn't exist in the static manifests directory created by K3s:
+
+```sh
+rm /var/lib/rancher/k3s/server/manifests/traefik-config.yaml
+```
+
+This helm chart config will be managed through flux instead (see `infrastructure/controllers/base/traefik`).
 
 ### Multi-node kubeadm setup
 
