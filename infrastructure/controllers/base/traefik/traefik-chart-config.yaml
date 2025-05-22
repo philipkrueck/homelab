@@ -1,0 +1,23 @@
+apiVersion: helm.cattle.io/v1
+kind: HelmChartConfig
+metadata:
+  name: traefik
+  namespace: kube-system
+spec:
+  valuesContent: |-
+    additionalArguments:
+      - "--api"
+      - "--api.dashboard=true"
+      - "--api.insecure=true"
+    ports:
+      traefik:
+        expose:
+          default: true
+    providers:
+      kubernetesCRD:
+        allowCrossNamespace: true
+    logs:
+      general:
+        level: "DEBUG"
+      access:
+        enabled: true
