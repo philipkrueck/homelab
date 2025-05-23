@@ -65,11 +65,6 @@ Everything needed to run my cluster & deploy my applications
         <td>Certificate Management. I'm using <a href="https://letsencrypt.org/">Let's Encrypt</a> as a CA.</td>
     </tr>
     <tr>
-        <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/cloudflare-zero-trust.png"></td>
-        <td><a href="https://developers.cloudflare.com/cloudflare-one/">Cloudflare Tunnels</a></td>
-        <td>I don't really need tunnels since my VM has a public IP. But they are amazing if I setup some hardware in my private network.</td>
-    </tr>
-    <tr>
         <td><img width="32" src="https://www.svgrepo.com/download/477066/lock.svg"></td>
         <td><a href="https://github.com/getsops/sops">SOPS</a></td>
         <td>Encryption of Kubernetes Secrets. So that I can store them in this repo.</td>
@@ -88,6 +83,11 @@ Everything needed to run my cluster & deploy my applications
         <td><img width="32" src="https://www.svgrepo.com/download/374041/renovate.svg"></td>
         <td><a href="https://github.com/renovatebot/renovate">Renovate</a></td>
         <td>Automated dependency updates.</td>
+    </tr>
+    <tr>
+        <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/cloudflare-zero-trust.png"></td>
+        <td><a href="https://developers.cloudflare.com/cloudflare-one/">Cloudflare Tunnels</a></td>
+        <td>I don't really need tunnels since my VM has a public IP. But they are amazing if I setup some hardware in my private network.</td>
     </tr>
 </table>
 
