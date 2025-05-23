@@ -6,3 +6,5 @@ resources:
   - dashboard-auth-middleware.yaml
   - dashboard-rewrite.yaml
   - dashboard-ingress-route.yaml
+  - dashboard-ingress-route-http.yaml
+  - redirect-https.yaml
