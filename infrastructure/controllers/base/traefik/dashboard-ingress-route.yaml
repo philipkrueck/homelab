@@ -1,0 +1,23 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-dashboard-secure
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: Host("dashboard.traefik.philipkrueck.com")
+      services:
+        - name: traefik-dashboard
+          port: 8080
+      middlewares:
+        - name: dashboard-auth
+        - name: dashboard-rewrite
+    - kind: Rule
+      match: Host("dashboard.traefik.philipkrueck.com") && PathPrefix("/api")
+      services:
+        - name: traefik-dashboard
+          port: 8080
+      middlewares:
+        - name: dashboard-auth

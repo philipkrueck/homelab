@@ -3,7 +3,6 @@ kind: Kustomization
 resources:
   - traefik-chart-config.yaml
   - service.yaml
-  - ingress.yaml
   - dashboard-auth-middleware.yaml
   - dashboard-rewrite.yaml
-  - dashboard-api-ingress.yaml
+  - dashboard-ingress-route.yaml
