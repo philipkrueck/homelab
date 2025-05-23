@@ -1,10 +1,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: traefik-dashboard
+  name: traefik-dashboard-api
   annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web
-    traefik.ingress.kubernetes.io/router.middlewares: kube-system-dashboard-rewrite@kubernetescrd,kube-system-dashboard-auth@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: kube-system-dashboard-auth@kubernetescrd
 spec:
   rules:
     - host: dashboard.traefik.philipkrueck.com
@@ -15,5 +14,5 @@ spec:
                 name: traefik-dashboard
                 port:
                   number: 8080
-            path: /
+            path: /api/
             pathType: Prefix

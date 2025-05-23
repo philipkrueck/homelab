@@ -1,0 +1,7 @@
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: dashboard-rewrite
+spec:
+  addPrefix:
+    prefix: /dashboard # since the domain name already is qualified for the dashboard, don't need /dashboard as a path
