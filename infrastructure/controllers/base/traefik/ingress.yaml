@@ -4,6 +4,7 @@ metadata:
   name: traefik-dashboard
   annotations:
     traefik.ingress.kubernetes.io/router.entrypoints: web
+    traefik.ingress.kubernetes.io/router.middlewares: kube-system-dashboard-auth@kubernetescrd
 spec:
   rules:
     - host: dashboard.traefik.philipkrueck.com

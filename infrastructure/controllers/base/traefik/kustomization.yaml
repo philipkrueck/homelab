@@ -4,3 +4,4 @@ resources:
   - traefik-chart-config.yaml
   - service.yaml
   - ingress.yaml
+  - dashboard-auth-middleware.yaml
