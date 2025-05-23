@@ -60,6 +60,11 @@ Everything needed to run my cluster & deploy my applications
         <td>My Ingress Controller of choice.</td>
     </tr>
     <tr>
+        <td><img width="32" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-0ZLIeiGhCbdGZiRAE6AyF-Zl1f1FgEwVKw&s"></td>
+        <td><a href="https://traefik.io/traefik/">cert-manager</a></td>
+        <td>Certificate Management. I'm using <a href="https://letsencrypt.org/">Let's Encrypt</a> as a CA.</td>
+    </tr>
+    <tr>
         <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/png/cloudflare-zero-trust.png"></td>
         <td><a href="https://developers.cloudflare.com/cloudflare-one/">Cloudflare Tunnels</a></td>
         <td>I don't really need tunnels since my VM has a public IP. But they are amazing if I setup some hardware in my private network.</td>
@@ -92,9 +97,9 @@ I want my homelab to run on various types of Kubernetes setups.
 
 I'm currently running my cluster on a simple single VM [k3s](https://docs.k3s.io), but planning to switch to the multi-node setup soon. I've documented both setup options below.
 
-### k3s install
+### Single node k3s setup
 
-Follow the docs for installation.
+Follow the [docs for installation](https://docs.k3s.io/quick-start).
 
 Then make sure the `traefik-config.yaml` doesn't exist in the static manifests directory created by K3s:
 
@@ -103,6 +108,8 @@ rm /var/lib/rancher/k3s/server/manifests/traefik-config.yaml
 ```
 
 This helm chart config will be managed through flux instead (see `infrastructure/controllers/base/traefik`).
+
+I plan to deploy Traefik outside of k3s to make the homelab more portable to different k8s deployments.
 
 ### Multi-node kubeadm setup
 
@@ -122,10 +129,6 @@ Both the master and worker node have the same specs:
 Both machines require open SSH access (`TCP:22`).
 The master node also requires an open `TCP:6443` firewall rule for the Kube API Server.
 Services are exposed on ports `30000`-`40000` so these ports will be opened as needed.
-
-#### Cluster Setup Instructions (Single node with `k3s`)
-
-TODO: add setup instructions for k3s
 
 #### Cluster Setup Instructions (Multi-node with `kubeadm`)
 
@@ -190,10 +193,18 @@ export-env { $env.GITHUB_TOKEN = 'ghp_XXXX' }
 flux bootstrap github --owner=philipkrueck --repository=homelab --branch=main --path=./clusters/staging --personal --token-auth
 ```
 
-3. Setup secret encryption using age
+3. Provide flux with my age secret key
 
 ```sh
-age-keygen -o age.key # maybe not necessary if already exists
+cat ~/.age/age.key | k create secret generic sops-age --namespace=flux-system --from-file=age.agekey=/dev/stdin
+```
+
+## Secrets
+
+Flux has access to my age secret key. In order to safely commit secrets to this repo, I use the following command on the raw secret files:
+
+```sh
+sops --age=age1vf5v73hyx36z3y398l2n7pxyhznptpl00kkxnuup4vrtnsjpg5tqcperyn --encrypt --encrypted-regex '^(data|stringData)$' --in-place super-secret.yaml
 ```
 
 ## Future Plans
