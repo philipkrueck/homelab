@@ -4,7 +4,7 @@ metadata:
   name: traefik-dashboard-secure
 spec:
   entryPoints:
-    - web
+    - websecure
   routes:
     - kind: Rule
       match: Host("dashboard.traefik.philipkrueck.com")
@@ -21,3 +21,5 @@ spec:
           port: 8080
       middlewares:
         - name: dashboard-auth
+  tls:
+    secretName: dashboard-crt
