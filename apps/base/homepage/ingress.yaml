@@ -1,0 +1,16 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: homepage-secure
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host("homepage.philipkrueck.com")
+      services:
+        - name: homepage
+          port: 3000
+      middlewares: {}
+  tls:
+    secretName: homepage-crt
