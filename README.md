@@ -6,11 +6,13 @@ This repo contains all the configuration as well as documentation for my homelab
 
 The purpose of my homelab is to learn and have fun.
 
-Self hosting using Kubernetes requires me to think about security, scalability, maintenance and deployment strategies.
+Self hosting using Kubernetes requires me to think about security, scalability,
+maintenance and deployment strategies.
 
 ## GitOps
 
-I aim to apply all changes via GitOps rather than running manual commands on the cluster.
+I aim to apply all changes via GitOps rather than running manual commands
+on the cluster.
 
 To this end I'm using [FluxCD](https://fluxcd.io/).
 
@@ -27,14 +29,19 @@ End User Applications
         <th>Description</th>
     </tr>
     <tr>
+        <td><img width="32" src="https://avatars.githubusercontent.com/u/122929872?s=48&v=4"></td>
+        <td><a href="https://linkding.link/">Homepage</a></td>
+        <td>Application dashboard serving as a GUI entrypoint into my homelab.                                                  </td>
+    </tr>
+    <tr>
         <td><img width="32" src="https://linkding.link/_astro/logo.DkvM5cgj.svg"></td>
         <td><a href="https://linkding.link/">Linkding</a></td>
-        <td>My browser-agnostic bookmark manager.</td>
+        <td>Browser-agnostic bookmark manager.</td>
     </tr>
     <tr>
         <td><img width="32" src="https://play-lh.googleusercontent.com/9Qjh1GhRcPcUOQLTt-DdnYV2PS9ENidfvkGZ602QWF36KGvLogzcJwCaKTcWBytVGktP"></td>
         <td><a href="https://www.audiobookshelf.org/">Audiobookshelf</a></td>
-        <td>My audio book library.</td>
+        <td>Audio book library.</td>
     </tr>
 </table>
 ...more coming soon
@@ -95,13 +102,16 @@ Everything needed to run my cluster & deploy my applications
 
 I want my homelab to run on various types of Kubernetes setups.
 
-I'm currently running my cluster on a simple single VM [k3s](https://docs.k3s.io), but planning to switch to the multi-node setup soon. I've documented both setup options below.
+I'm currently running my cluster on a simple single VM [k3s](https://docs.k3s.io),
+but planning to switch to the multi-node setup soon.
+I've documented both setup options below.
 
 ### Single node k3s setup
 
 Follow the [docs for installation](https://docs.k3s.io/quick-start).
 
-Then make sure the `traefik-config.yaml` doesn't exist in the static manifests directory created by K3s:
+Then make sure the `traefik-config.yaml` doesn't
+exist in the static manifests directory created by K3s:
 
 ```sh
 rm /var/lib/rancher/k3s/server/manifests/traefik-config.yaml
@@ -109,11 +119,13 @@ rm /var/lib/rancher/k3s/server/manifests/traefik-config.yaml
 
 This helm chart config will be managed through flux instead (see `infrastructure/controllers/base/traefik`).
 
-I plan to deploy Traefik outside of k3s to make the homelab more portable to different k8s deployments.
+I plan to deploy Traefik outside of k3s
+to make the homelab more portable to different k8s deployments.
 
 ### Multi-node kubeadm setup
 
-This setup requires 2 virtual machines - one master and one worker node provisioned using [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/).
+This setup requires 2 virtual machines -
+one master and one worker node provisioned using [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/).
 
 #### Virtual Machine Specs
 
@@ -142,7 +154,8 @@ Services are exposed on ports `30000`-`40000` so these ports will be opened as n
 bash <(curl -s https://raw.githubusercontent.com/philipkrueck/homelab/refs/heads/main/setup/install-master.sh)
 ```
 
-4. Take note of the join command in the output. It will be needed in the next steps and should look similar to this:
+4. Take note of the join command in the output.
+   It will be needed in the next steps and should look similar to this:
 
 ```sh
 kubeadm join <masterIP>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>
@@ -158,7 +171,8 @@ kubeadm join <masterIP>:6443 --token <token> --discovery-token-ca-cert-hash sha2
 bash <(curl -s https://raw.githubusercontent.com/philipkrueck/homelab/refs/heads/main/setup/install-worker.sh)
 ```
 
-4. Execute the join command that was displayed at the end of the output of the setup script on the master.
+4. Execute the join command that was displayed
+   at the end of the output of the setup script on the master.
 
 ##### 3. Verify Node Setup
 
@@ -173,7 +187,8 @@ homelab-master      Ready    control-plane,master   6d21h   v1.32.3
 homelab-worker      Ready    worker                 6d21h   v1.32.3
 ```
 
-- Now the kube config can copied to the local machine to interact with the cluster without SSH access.
+- Now the kube config can copied to the local machine to interact
+  with the cluster without SSH access.
 
 ## Install Flux
 
@@ -181,7 +196,8 @@ homelab-worker      Ready    worker                 6d21h   v1.32.3
 
 - Go to GitHub Settings > Developer Settings > Personal Access Tokens
 - Generate a new classic token with 'repo' permissions
-- Store the token in an environment variable: `export GITHUB_TOKEN=<your-token>` or in nushell
+- Store the token in an environment variable:
+  `export GITHUB_TOKEN=<your-token>` or in nushell
 
 ```sh
 export-env { $env.GITHUB_TOKEN = 'ghp_XXXX' }
@@ -201,7 +217,9 @@ cat ~/.age/age.key | k create secret generic sops-age --namespace=flux-system --
 
 ## Secrets
 
-Flux has access to my age secret key. In order to safely commit secrets to this repo, I use the following command on the raw secret files:
+Flux has access to my age secret key.
+In order to safely commit secrets to this repo,
+I use the following command on the raw secret files:
 
 ```sh
 sops --age=age1vf5v73hyx36z3y398l2n7pxyhznptpl00kkxnuup4vrtnsjpg5tqcperyn --encrypt --encrypted-regex '^(data|stringData)$' --in-place super-secret.yaml
@@ -209,7 +227,7 @@ sops --age=age1vf5v73hyx36z3y398l2n7pxyhznptpl00kkxnuup4vrtnsjpg5tqcperyn --encr
 
 ## Future Plans
 
-- Deploy some more cool open source applications like [Homepage](https://github.com/gethomepage/homepage)
+- Deploy some more cool open source applications
 - Deploy my [personal website](https://philipkrueck.com) and [solstamp.io](https://solstamp.io)
 - Add a back up solution
 - Ability to restore all data & state from blob storage
