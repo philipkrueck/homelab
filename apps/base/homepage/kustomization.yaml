@@ -4,7 +4,7 @@ resources:
   - clusterrole.yaml
   - configmap.yaml
   - deployment.yaml
-  - ingress.yaml
+  - ingressroute.yaml
   - namespace.yaml
   - secret.yaml
   - service.yaml

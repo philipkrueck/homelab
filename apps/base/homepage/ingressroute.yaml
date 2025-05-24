@@ -11,6 +11,5 @@ spec:
       services:
         - name: homepage
           port: 3000
-      middlewares: {}
   tls:
     secretName: homepage-crt
