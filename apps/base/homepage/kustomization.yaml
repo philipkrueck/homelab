@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - clusterrole.yaml
   - configmap.yaml
+  - configmap-env.yaml
   - deployment.yaml
   - ingressroute.yaml
   - namespace.yaml
