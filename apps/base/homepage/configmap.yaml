@@ -5,6 +5,7 @@ metadata:
   labels:
     app.kubernetes.io/name: homepage
 data:
+  HOMEPAGE_ALLOWED_HOSTS: "*"
   kubernetes.yaml: |
     mode: cluster
   settings.yaml: ""
