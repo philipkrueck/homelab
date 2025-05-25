@@ -7,5 +7,5 @@ spec:
     - "homepage.philipkrueck.com"
   issuerRef:
     kind: ClusterIssuer
-    name: cluster-issuer-staging
+    name: cluster-issuer
   secretName: homepage-crt
