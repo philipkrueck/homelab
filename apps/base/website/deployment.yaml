@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
         - name: website
-          image: ghcr.io/philipkrueck/website:v0.0.2-test
+          image: ghcr.io/philipkrueck/website:v1.0.0
           ports:
             - containerPort: 3000
