@@ -29,6 +29,11 @@ End User Applications
         <th>Description</th>
     </tr>
     <tr>
+        <td><img width="32" src="https://avatars.githubusercontent.com/u/46320394?v=4"></td>
+    <td><a href="https://philipkrueck.com">philipkrueck.com</a></td>
+        <td>This is my personal website. I occasionally write there.                                                  </td>
+    </tr>
+    <tr>
         <td><img width="32" src="https://avatars.githubusercontent.com/u/122929872?s=48&v=4"></td>
         <td><a href="https://linkding.link/">Homepage</a></td>
         <td>Application dashboard serving as a GUI entrypoint into my homelab.                                                  </td>
@@ -228,6 +233,6 @@ sops --age=age1vf5v73hyx36z3y398l2n7pxyhznptpl00kkxnuup4vrtnsjpg5tqcperyn --encr
 ## Future Plans
 
 - Deploy some more cool open source applications
-- Deploy my [personal website](https://philipkrueck.com) and [solstamp.io](https://solstamp.io)
+- Deploy [solstamp.io](https://solstamp.io)
 - Add a back up solution
 - Ability to restore all data & state from blob storage
