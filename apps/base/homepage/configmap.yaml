@@ -12,47 +12,40 @@ data:
   custom.css: ""
   custom.js: ""
   bookmarks.yaml: |
-    - GH Repos:
-        - Github Home:
-            - href: https://github.com/philipkrueck
-        - Github Homelab:
+    - Developer:
+        - homelab:
             - href: https://github.com/philipkrueck/homelab
-        - Dotfiles:
+              icon: github.png
+        - .dotfiles:
             - href: https://github.com/philipkrueck/.dotfiles
+              icon: github.png
+    - Network:
+        - LinkedIn:
+            - href: https://github.com/philipkrueck/homelab
+              icon: linkedin.png
+        - X:
+            - href: https://x.com
+              icon: x.png
 
   services.yaml: |
     - Applications:
-        - Website:
+        - philipkrueck.com:
             href: https://philipkrueck.com
-            description: My website
+            ping: philipkrueck.com
         - solstamp.io:
             href: https://solstamp.io
+            ping: solstamp.io
 
     - Infrastructure:
         - Traefik:
-            href: https://traefik.dashboard.philipkrueck.com
+            icon: traefik.png
+            href: https://dashboard.traefik.philipkrueck.com
+            ping: solstamp.io
         - Grafana:
+            icon: grafana.png
             href: https://grafana.philipkrueck.com
         - Prometheus:
+            icon: prometheus.png
             href: https://prometheus.philipkrueck.com
 
-  widgets.yaml: |
-    - kubernetes:
-        cluster:
-          show: true
-          cpu: true
-          memory: true
-          showLabel: true
-          label: "cluster"
-        nodes:
-          show: true
-          cpu: true
-          memory: true
-          showLabel: true
-    - resources:
-        backend: resources
-        expanded: false
-        cpu: true
-        memory: true
-        network: default
   docker.yaml: ""
