@@ -12,25 +12,30 @@ data:
   custom.css: ""
   custom.js: ""
   bookmarks.yaml: |
-    - Developer:
-        - Github:
-            - abbr: GH
-              href: https://github.com/
+    - GH Repos:
+        - Github Home:
+            - href: https://github.com/philipkrueck
+        - Github Homelab:
+            - href: https://github.com/philipkrueck/homelab
+        - Dotfiles:
+            - href: https://github.com/philipkrueck/.dotfiles
+
   services.yaml: |
-    - My First Group:
-        - My First Service:
-            href: http://localhost/
-            description: Homepage is awesome
+    - Applications:
+        - Website:
+            href: https://philipkrueck.com
+            description: My website
+        - solstamp.io:
+            href: https://solstamp.io
 
-    - My Second Group:
-        - My Second Service:
-            href: http://localhost/
-            description: Homepage is the best
+    - Infrastructure:
+        - Traefik:
+            href: https://traefik.dashboard.philipkrueck.com
+        - Grafana:
+            href: https://grafana.philipkrueck.com
+        - Prometheus:
+            href: https://prometheus.philipkrueck.com
 
-    - My Third Group:
-        - My Third Service:
-            href: http://localhost/
-            description: Homepage is 😎
   widgets.yaml: |
     - kubernetes:
         cluster:
@@ -46,11 +51,8 @@ data:
           showLabel: true
     - resources:
         backend: resources
-        expanded: true
+        expanded: false
         cpu: true
         memory: true
         network: default
-    - search:
-        provider: duckduckgo
-        target: _blank
   docker.yaml: ""
