@@ -1,0 +1,15 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: prometheus-secure
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - kind: Rule
+      match: Host("prometheus.philipkrueck.com") && PathPrefix("/")
+      services:
+        - name: prometheus
+          port: 9090
+  tls:
+    secretName: prometheus-crt
