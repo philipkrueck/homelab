@@ -82,9 +82,8 @@ spec:
           - grafana.philipkrueck.com
         path: /
       tls:
-        - secretName: grafana-tls-secret
-          hosts:
-            - grafana.philipkrueck.com
+      tls:
+        - secretName: grafana-crt
 
     kubeApiServer:
       enabled: true
