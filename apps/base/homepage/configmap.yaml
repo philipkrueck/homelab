@@ -24,7 +24,7 @@ data:
             - href: https://linkedin.com/philipkrueck
               icon: linkedin.png
         - X:
-            - href: https://x.com
+            - href: https://x.com/philipkrueck
               icon: x.png
 
   services.yaml: |
