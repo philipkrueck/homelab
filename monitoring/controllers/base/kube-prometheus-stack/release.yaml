@@ -73,16 +73,16 @@ spec:
 
       adminPassword: philip
 
-      ingress:
-        enabled: true
-        ingressClassName: traefik
-        annotations: {}
-        labels: {}
-        hosts:
-          - grafana.philipkrueck.com
-        path: /
-      tls:
-        - secretName: grafana-crt
+      # ingress:
+      #   enabled: true
+      #   ingressClassName: traefik
+      #   annotations: {}
+      #   labels: {}
+      #   hosts:
+      #     - grafana.philipkrueck.com
+      #   path: /
+      # tls:
+      #   - secretName: grafana-crt
 
     kubeApiServer:
       enabled: true
