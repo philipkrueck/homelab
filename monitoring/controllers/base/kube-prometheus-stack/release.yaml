@@ -70,8 +70,10 @@ spec:
       defaultDashboardsTimezone: utc
       serviceMonitor:
         enabled: true
-
-      adminPassword: philip
+      admin:
+        existingSecret: grafana-admin-credentials
+        userKey: admin-user
+        passwordKey: admin-password
 
       # ingress:
       #   enabled: true
