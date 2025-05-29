@@ -39,9 +39,9 @@ End User Applications
         <td>Application dashboard serving as a GUI entrypoint into my homelab.                                                  </td>
     </tr>
     <tr>
-        <td><img width="32" src="https://play-lh.googleusercontent.com/9Qjh1GhRcPcUOQLTt-DdnYV2PS9ENidfvkGZ602QWF36KGvLogzcJwCaKTcWBytVGktP"></td>
-        <td><a href="https://www.audiobookshelf.org/">Audiobookshelf</a></td>
-        <td>Audio book library.</td>
+        <td><img width="32" src="https://avatars.githubusercontent.com/u/60198665?s=48&v=4"></td>
+        <td><a href="https://links.philipkrueck.com">littlelink-server</a></td>
+        <td>Self hosted alternative to linktree.                                                   </td>
     </tr>
 </table>
 ...more coming soon
