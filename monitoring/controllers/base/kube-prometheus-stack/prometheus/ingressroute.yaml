@@ -9,7 +9,7 @@ spec:
     - kind: Rule
       match: Host("prometheus.philipkrueck.com") && PathPrefix("/")
       services:
-        - name: prometheus
+        - name: prometheus-prometheus
           port: 9090
   tls:
     secretName: prometheus-crt
