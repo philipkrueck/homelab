@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: littlelink-env-configmap
+data:
+  HOMEPAGE_ALLOWED_HOSTS: "homepage.philipkrueck.com"
+  META_TITLE: "Philip Krück"
+  META_DESCRIPTION: "Philip's Link Page"
+  LANG: "en"
+  BIO: "Backend Engineer | DevOps Engineer"
