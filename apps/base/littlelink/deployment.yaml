@@ -15,3 +15,14 @@ spec:
       containers:
         - name: littlelink
           image: ghcr.io/techno-tim/littlelink-server:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: META_TITLE
+              value: "Philip Krück"
+            - name: META_DESCRIPTION
+              value: "Philip's Link Page"
+            - name: LANG
+              value: en
+            - name: BIO
+              value: Backend Engineer | DevOps Engineer
