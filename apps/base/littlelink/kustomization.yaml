@@ -3,4 +3,6 @@ kind: Kustomization
 resources:
   - configmap-env.yaml
   - deployment.yaml
+  - ingressroute.yaml
   - namespace.yaml
+  - service.yaml
