@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: littlelink
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: littlelink
+  template:
+    metadata:
+      labels:
+        app: littlelink
+    spec:
+      containers:
+        - name: littlelink
+          image: ghcr.io/techno-tim/littlelink-server:latest
