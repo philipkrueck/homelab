@@ -35,6 +35,9 @@ data:
         - solstamp.io:
             href: https://solstamp.io
             ping: solstamp.io
+        - littlelink:
+            href: https://links.philipkrueck.com
+            ping: links.philipkrueck.com
 
     - Infrastructure:
         - Traefik:
