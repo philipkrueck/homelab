@@ -35,13 +35,8 @@ End User Applications
     </tr>
     <tr>
         <td><img width="32" src="https://avatars.githubusercontent.com/u/122929872?s=48&v=4"></td>
-        <td><a href="https://linkding.link/">Homepage</a></td>
+        <td><a href="https://gethomepage.dev/">Homepage</a></td>
         <td>Application dashboard serving as a GUI entrypoint into my homelab.                                                  </td>
-    </tr>
-    <tr>
-        <td><img width="32" src="https://linkding.link/_astro/logo.DkvM5cgj.svg"></td>
-        <td><a href="https://linkding.link/">Linkding</a></td>
-        <td>Browser-agnostic bookmark manager.</td>
     </tr>
     <tr>
         <td><img width="32" src="https://play-lh.googleusercontent.com/9Qjh1GhRcPcUOQLTt-DdnYV2PS9ENidfvkGZ602QWF36KGvLogzcJwCaKTcWBytVGktP"></td>
