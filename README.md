@@ -227,7 +227,7 @@ sops --age=age1vf5v73hyx36z3y398l2n7pxyhznptpl00kkxnuup4vrtnsjpg5tqcperyn --encr
 
 ## Future Plans
 
-- Deploy some more cool open source applications
-- Deploy [solstamp.io](https://solstamp.io)
+- Deploy Atuin CLI History DB
+- Deploy some more cool open source applications 
 - Add a back up solution
 - Ability to restore all data & state from blob storage
