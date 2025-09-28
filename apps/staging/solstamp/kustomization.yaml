@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: solstamp
 resources:
   - ../../base/solstamp/
-  - certificate.yaml
+  # - certificate.yaml

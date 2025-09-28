@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: littlelink
 resources:
   - ../../base/littlelink/
-  - certificate.yaml
+  # - certificate.yaml
