@@ -1,11 +1,11 @@
-# apiVersion: cert-manager.io/v1
-# kind: Certificate
-# metadata:
-#   name: solstamp
-# spec:
-#   dnsNames:
-#     - "solstamp.io"
-#   issuerRef:
-#     kind: ClusterIssuer
-#     name: cluster-issuer
-#   secretName: solstamp-crt
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: solstamp
+spec:
+  dnsNames:
+    - "solstamp.io"
+  issuerRef:
+    kind: ClusterIssuer
+    name: cluster-issuer
+  secretName: solstamp-crt

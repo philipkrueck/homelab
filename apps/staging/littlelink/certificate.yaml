@@ -1,11 +1,11 @@
-# apiVersion: cert-manager.io/v1
-# kind: Certificate
-# metadata:
-#   name: littlelink
-# spec:
-#   dnsNames:
-#     - "links.philipkrueck.com"
-#   issuerRef:
-#     kind: ClusterIssuer
-#     name: cluster-issuer
-#   secretName: littlelink-crt
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: littlelink
+spec:
+  dnsNames:
+    - "links.philipkrueck.com"
+  issuerRef:
+    kind: ClusterIssuer
+    name: cluster-issuer
+  secretName: littlelink-crt
