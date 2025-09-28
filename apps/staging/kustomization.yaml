@@ -3,5 +3,4 @@ kind: Kustomization
 resources:
   - homepage
   - littlelink
-  - solstamp
   - website

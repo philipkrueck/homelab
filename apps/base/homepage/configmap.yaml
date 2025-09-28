@@ -32,9 +32,6 @@ data:
         - philipkrueck.com:
             href: https://philipkrueck.com
             ping: philipkrueck.com
-        - solstamp.io:
-            href: https://solstamp.io
-            ping: solstamp.io
         - littlelink:
             href: https://links.philipkrueck.com
             ping: links.philipkrueck.com
@@ -43,7 +40,7 @@ data:
         - Traefik:
             icon: traefik.png
             href: https://dashboard.traefik.philipkrueck.com
-            ping: solstamp.io
+            ping: https://dashboard.traefik.philipkrueck.com
         - Grafana:
             icon: grafana.png
             href: https://grafana.philipkrueck.com
