@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: website
 resources:
   - ../../base/website/
-  # - certificate.yaml
+  - certificate.yaml
