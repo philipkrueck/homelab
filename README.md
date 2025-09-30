@@ -114,13 +114,10 @@ Then make sure the `traefik-config.yaml` doesn't
 exist in the static manifests directory created by K3s:
 
 ```sh
-rm /var/lib/rancher/k3s/server/manifests/traefik-config.yaml
+rm /var/lib/rancher/k3s/server/manifests/traefik.yaml
 ```
 
-This helm chart config will be managed through flux instead (see `infrastructure/controllers/base/traefik`).
-
-I plan to deploy Traefik outside of k3s
-to make the homelab more portable to different k8s deployments.
+The Traefik Deployment will be managed as code instead: `infrastructure/controllers/base/traefik`.
 
 ### Multi-node kubeadm setup
 
@@ -200,7 +197,7 @@ homelab-worker      Ready    worker                 6d21h   v1.32.3
   `export GITHUB_TOKEN=<your-token>` or in nushell
 
 ```sh
-export-env { $env.GITHUB_TOKEN = 'ghp_XXXX' }
+$env.GITHUB_TOKEN = 'ghp_XXXX'
 ```
 
 2. Bootstrap flux on cluster
