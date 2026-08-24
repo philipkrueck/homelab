@@ -64,17 +64,17 @@ Everything needed to run my cluster & deploy my applications
     <tr>
         <td><img width="32" src="https://raw.githubusercontent.com/docker-library/docs/a6cc2c5f4bc6658168f2a0abbb0307acaefff80e/traefik/logo.png"></td>
         <td><a href="https://traefik.io/traefik/">Traefik</a></td>
-        <td>My Ingress Controller of choice.</td>
+        <td>Ingress Controller</td>
     </tr>
     <tr>
         <td><img width="32" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-0ZLIeiGhCbdGZiRAE6AyF-Zl1f1FgEwVKw&s"></td>
         <td><a href="https://traefik.io/traefik/">cert-manager</a></td>
-        <td>Certificate Management. I'm using <a href="https://letsencrypt.org/">Let's Encrypt</a> as a CA.</td>
+        <td>Certificate Management via <a href="https://letsencrypt.org/">Let's Encrypt</a> as a CA.</td>
     </tr>
     <tr>
         <td><img width="32" src="https://www.svgrepo.com/download/477066/lock.svg"></td>
         <td><a href="https://github.com/getsops/sops">SOPS</a></td>
-        <td>Encryption of Kubernetes Secrets. So that I can store them in this repo.</td>
+        <td>Encryption of Kubernetes Secrets. Allows storing secrets in this repo.</td>
     </tr>
     <tr>
         <td><img width="32" src="https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/grafana.svg"></td>
@@ -122,11 +122,11 @@ The Traefik Deployment will be managed as code instead: `infrastructure/controll
 ### Multi-node kubeadm setup
 
 This setup requires 2 virtual machines -
-one master and one worker node provisioned using [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/).
+one controlplane and one worker node provisioned using [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/).
 
 #### Virtual Machine Specs
 
-Both the master and worker node have the same specs:
+Both the controlplane and worker node have the same specs:
 
 - RAM = 4GiB
 - disk = 120GiB SSD
@@ -184,7 +184,7 @@ homelab-master      Ready    control-plane,master   6d21h   v1.32.3
 homelab-worker      Ready    worker                 6d21h   v1.32.3
 ```
 
-- Now the kube config can copied to the local machine to interact
+- Now the kube config can be copied to the local machine to interact
   with the cluster without SSH access.
 
 ## Install Flux
@@ -212,11 +212,11 @@ flux bootstrap github --owner=philipkrueck --repository=homelab --branch=main --
 cat ~/.age/age.key | k create secret generic sops-age --namespace=flux-system --from-file=age.agekey=/dev/stdin
 ```
 
-## Secrets
+## Secret Management
 
-Flux has access to my age secret key.
-In order to safely commit secrets to this repo,
-I use the following command on the raw secret files:
+Flux requires the AGE secret key in order to safely commit secrets to the repo.
+
+I use the following command on the raw secret files to encrypt them:
 
 ```sh
 sops --age=age1vf5v73hyx36z3y398l2n7pxyhznptpl00kkxnuup4vrtnsjpg5tqcperyn --encrypt --encrypted-regex '^(data|stringData)$' --in-place super-secret.yaml
@@ -225,6 +225,6 @@ sops --age=age1vf5v73hyx36z3y398l2n7pxyhznptpl00kkxnuup4vrtnsjpg5tqcperyn --encr
 ## Future Plans
 
 - Deploy Atuin CLI History DB
-- Deploy some more cool open source applications 
+- Deploy some more cool open source applications
 - Add a back up solution
 - Ability to restore all data & state from blob storage
