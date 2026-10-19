@@ -1,0 +1,21 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  name: gtw-prod
+spec:
+  gatewayClassName: nginx
+  listeners:
+    - name: http
+      protocol: HTTP
+      hostname: "philipkrueck.com"
+      port: 80
+      allowedRoutes:
+        namespaces:
+          from: All
+    - name: https
+      protocol: HTTP
+      hostname: "philipkrueck.com"
+      port: 443
+      allowedRoutes:
+        namespaces:
+          from: All

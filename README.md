@@ -34,13 +34,32 @@ See: <https://cloudfleet.ai/docs/introduction/getting-started/>
 ```sh
 k apply -f apps/website/namespace.yaml
 k apply -f apps/website/deployment.yaml
-k apply -f apps/website/loadbalancer.yaml
+```
+
+#### Gateway API
+
+See: <https://docs.nginx.com/nginx-gateway-fabric/install/helm/>
+
+Install Gateway API CRs
+
+```sh
+kubectl kustomize "https://github.com/nginx/nginx-gateway-fabric/config/crd/gateway-api/standard?ref=v2.8.0" | kubectl apply -f -
+```
+
+Install Nginx Controller
+
+```sh
+helm install ngf oci://ghcr.io/nginx/charts/nginx-gateway-fabric --create-namespace -n nginx-gateway
 ```
 
 **On Local Cluster:**
 
 ```sh
 k port-forward -n website deployment/website 3000:3000
+```
+
+```sh
+brew install cloud-provider-kind
 ```
 
 Open [localhost:3000](localhost:3000).
@@ -61,3 +80,4 @@ kind delete clusters phils-cluster
 ## Next Steps
 
 - [ ] create a 3 node VM based cluster where I manually install kubeadm
+- [ ] define all my infrastructure via Terraform or Pulumi
