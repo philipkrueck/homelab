@@ -4,9 +4,7 @@ metadata:
   name: website
   namespace: website
 spec:
-  type: LoadBalancer
+  ports:
+    - port: 3000
   selector:
     app: website
-  ports:
-    - port: 80
-      targetPort: 3000
