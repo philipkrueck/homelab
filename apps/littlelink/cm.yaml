@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: littlelink-env-configmap
+  namespace: littlelink
+data:
+  HOMEPAGE_ALLOWED_HOSTS: "homepage.philipkrueck.com"
+  META_TITLE: "Philip Krück"
+  META_DESCRIPTION: "Philip's Link Page"
+  LANG: "en"
+  BIO: "Cloud Software Engineer"
+  META_AUTHOR: "Philip Krück"
+  META_KEYWORDS: "Homelab, Engineering"
+  META_INDEX_STATUS: "noindex"
+  THEME: "dark"
+  FAVICON_URL: "https://avatars.githubusercontent.com/u/46320394"
+  AVATAR_URL: "https://avatars.githubusercontent.com/u/46320394"
+  AVATAR_2X_URL: "https://avatars.githubusercontent.com/u/46320394"
+  NAME: "Philip Krück"
+  GITHUB: "https://github.com/philipkrueck"
+  LINKED_IN: "https://www.linkedin.com/in/philipkrueck"
+  YOUTUBE: "https://www.youtube.com/channel/UC5gh-x8bh4psIRdKLpf5Cbw"
+  TWITTER: "https://x.com/philipkrueck"
+  FOOTER: "© 2026"
