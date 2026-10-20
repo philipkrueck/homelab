@@ -8,6 +8,8 @@ spec:
     - name: gtw-prod
       namespace: default
       sectionName: http
+  hostnames:
+    - philipkrueck.com
   rules:
     - matches:
         - path:
