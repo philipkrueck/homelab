@@ -6,10 +6,14 @@ metadata:
 spec:
   parentRefs:
     - name: gtw-prod
-      namespace: default
+      namespace: infra-gateway
       sectionName: http
+    - name: gtw-prod
+      namespace: infra-gateway
+      sectionName: https
   hostnames:
     - philipkrueck.com
+    - www.philipkrueck.com
   rules:
     - matches:
         - path:

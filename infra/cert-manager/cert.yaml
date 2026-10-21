@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: philipkrueck
+  namespace: infra-gateway
+spec:
+  dnsNames:
+    - philipkrueck.com
+    - "*.philipkrueck.com"
+  secretName: secret-tls
+  issuerRef:
+    name: letsencrypt-issuer
+    kind: ClusterIssuer
