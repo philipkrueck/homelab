@@ -83,6 +83,10 @@ Open [localhost:3000](localhost:3000).
 Get the External IP of the LoadBalancer service and connect to it via HTTP.
 Should also be able to connect via domain name on HTTP, but not yet on HTTPS.
 
+---
+
+- Note: every app in my K8s cluster will receive its own namespace
+
 ## Configure TLS
 
 1. Deploy cert manager
@@ -99,9 +103,16 @@ helm install cert-manager oci://quay.io/jetstack/charts/cert-manager --version v
 k apply -f infra/cert-manager/
 ```
 
----
+## Configure Volumes
 
-- Note: every app in my K8s cluster will receive its own namespace
+See: <https://cloudfleet.ai/docs/storage/hetzner/>
+
+```sh
+cd infra/storage
+helm repo add hcloud https://charts.hetzner.cloud
+helm repo update hcloud
+helm upgrade --install hcloud-csi hcloud/hcloud-csi -n kube-system --values hcloud-csi.yaml
+```
 
 ## Destroy
 
@@ -114,3 +125,4 @@ kind delete clusters phils-cluster
 - [ ] create a 3 node VM based cluster where I manually install kubeadm
 - [ ] define all my infrastructure via Terraform or Pulumi
   - [ ] define DNS records via IaC
+- [ ] use kustomize to differentiate b/w local + production environment (e.g. prod storage: hetzner cloud provisioner, local: local-path)

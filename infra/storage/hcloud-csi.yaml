@@ -1,0 +1,30 @@
+controller:
+  replicaCount: 2
+  priorityClassName: system-node-critical
+  hcloudToken:
+    existingSecret:
+      name: fleet-1-secrets
+      key: hetzner
+  nodeSelector:
+    cfke.io/provider: hetzner
+  image:
+    csiAttacher:
+      name: quay.io/cloudfleet/csi-attacher
+    csiResizer:
+      name: quay.io/cloudfleet/csi-resizer
+    csiProvisioner:
+      name: quay.io/cloudfleet/csi-provisioner
+    livenessProbe:
+      name: quay.io/cloudfleet/livenessprobe
+node:
+  priorityClassName: system-node-critical
+  hostNetwork: true
+  nodeSelector:
+    cfke.io/provider: hetzner
+  image:
+    csiNodeDriverRegistrar:
+      name: quay.io/cloudfleet/csi-node-driver-registrar
+    livenessProbe:
+      name: quay.io/cloudfleet/livenessprobe
+    hcloudCSIDriver:
+      name: quay.io/cloudfleet/hcloud-csi-driver
