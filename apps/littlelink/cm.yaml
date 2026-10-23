@@ -4,20 +4,28 @@ metadata:
   name: littlelink-env-configmap
   namespace: littlelink
 data:
-  META_TITLE: "Philip Krück"
+  META_TITLE: "Philip's Link Page"
   META_DESCRIPTION: "Philip's Link Page"
   LANG: "en"
-  BIO: "Cloud Software Engineer"
+  BIO: "Cloud | Backend | DevOps | Command Line Enthusiast"
   META_AUTHOR: "Philip Krück"
-  META_KEYWORDS: "Homelab, Engineering"
-  META_INDEX_STATUS: "noindex"
-  THEME: "dark"
+  META_KEYWORDS: "Kubernetes, Golang, Distributed Systems"
+  META_INDEX_STATUS: "all"
+  THEME: "Dark"
   FAVICON_URL: "https://avatars.githubusercontent.com/u/46320394"
   AVATAR_URL: "https://avatars.githubusercontent.com/u/46320394"
   AVATAR_2X_URL: "https://avatars.githubusercontent.com/u/46320394"
   NAME: "Philip Krück"
+  BUTTON_ORDER: YOUTUBE,GITHUB,LINKED_IN,BLOG,TWITTER
+  YOUTUBE: "https://www.youtube.com/channel/UC5gh-x8bh4psIRdKLpf5Cbw"
   GITHUB: "https://github.com/philipkrueck"
   LINKED_IN: "https://www.linkedin.com/in/philipkrueck"
-  YOUTUBE: "https://www.youtube.com/channel/UC5gh-x8bh4psIRdKLpf5Cbw"
+  CUSTOM_BUTTON_TEXT: Blog
+  CUSTOM_BUTTON_NAME: BLOG
+  CUSTOM_BUTTON_URL: "https://philipkrueck.com/posts"
+  CUSTOM_BUTTON_COLOR: "#000000"
+  CUSTOM_BUTTON_TEXT_COLOR: "#ffffff"
+  CUSTOM_BUTTON_ALT_TEXT: Blog posts
+  CUSTOM_BUTTON_ICON: "fas blog"
   TWITTER: "https://x.com/philipkrueck"
   FOOTER: "© 2026"
