@@ -9,8 +9,9 @@ spec:
     privateKeySecretRef:
       name: letsencrypt-issuer-key
     solvers:
-      - dns01:
-          cloudflare:
-            apiTokenSecretRef:
-              name: cloudflare-api-token
-              key: api-token
+      - http01:
+          gatewayHTTPRoute:
+            parentRefs:
+              - name: gtw-prod
+                namespace: infra-gateway
+                kind: Gateway
